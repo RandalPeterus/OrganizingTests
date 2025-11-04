@@ -6,11 +6,11 @@ import Page from './page.js';
  */
 class Checkboxes extends Page {
    
-    async check1click() {
+    async click1() {
         await this.check1.click();
     }
 
-    async check2click() {
+    async click2() {
         await this.check2.click();
     }
 

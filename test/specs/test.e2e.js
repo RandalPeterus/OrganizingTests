@@ -4,8 +4,8 @@ import SecurePage from '../pageobjects/secure.page.js'
 import securePage from '../pageobjects/secure.page.js'
 import Checkboxes from '../pageobjects/checkbox.page.js'
 
-
-describe('My Login application', () => {
+//Use describe.skip to skip test suites you do not want to run
+describe.skip('My Login application', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.open()
 
@@ -31,7 +31,7 @@ describe('My Login application', () => {
 })
 
 
-describe('New Set', () => {   
+describe.skip('New Set', () => {   
     //Create a new page object page for checkboxes
     //1st test: navigate to check boxes page and confirm that checkbox 1 is unchecked
     it('should confirm checkbox 1 is unchecked', async () => {
@@ -39,18 +39,14 @@ describe('New Set', () => {
         await browser.maximizeWindow()
         await expect(Checkboxes.check1).toBeExisting()
         await expect(Checkboxes.check1).not.toBeSelected()
+        await expect(Checkboxes.check1).toMatchElementSnapshot('checkbox1')
    
     })
     //2nd test: click checkbox 2 and make sure checkbox 2 is unclicked
     it('should click checkbox 2, then should confirm checkbox 2 is unchecked', async () => {
         await expect(Checkboxes.check2).toBeExisting()
-        await Checkboxes.check2click()
+        await Checkboxes.click2()
         await expect(Checkboxes.check2).not.toBeSelected()
+        await expect(Checkboxes.check2).toMatchElementSnapshot('checkbox2')
     })
 })
-
-describe('', () => {
-    it('',async () => {
-        
-    });
-});
