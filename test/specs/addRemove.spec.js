@@ -17,15 +17,30 @@ describe('Add/Remove Elements Test', () => {
     });
         //Write your pseudo code here. Each step should explain why you just perform the step 
         //
-    it('should delete 2 buttons and verify that 2 are left', async () => { 
+         //these next two tests exist to fufill the starting condition of having 3 delete buttons for the Bonus test
+         it('should remove all 4 buttons and verify that none are left', async () => { 
+        //click the first delete button 4 times can click on the first one as the first one will always be present if there is a delete button
+        await AddRemovePage.deleteDeleteButtons(4);
+        //verify that 0 delete buttons are now present
+        await expect(AddRemovePage.deleteButtons).toBeElementsArrayOfSize(0); 
+    });
+
+   
+    it('should add 3 delete buttons using a helper function', async () => { 
+        //we need to click on the add button 3 times
+        await AddRemovePage.addElements(3); 
+        //verify that 3 delete buttons are now present
+        await expect(AddRemovePage.deleteButtons).toBeElementsArrayOfSize(3); 
+    });
+    it('should delete 2 buttons and verify that only 1 is left', async () => { 
         //click the first delete button twice can click on the first one as the first one will always be present if there is a delete button
         await AddRemovePage.deleteDeleteButtons(2);
         //verify that 2 delete buttons are now present
-        await expect(AddRemovePage.deleteButtons).toBeElementsArrayOfSize(2); 
+        await expect(AddRemovePage.deleteButtons).toBeElementsArrayOfSize(1); 
     });
-    it('should delete the remaining 2 buttons and verify that none are left', async () => { 
+    it('should delete the remaining button and verify that none are left', async () => { 
         //click the first delete button twice can click on the first one as the first one will always be present if there is a delete button
-        await AddRemovePage.deleteDeleteButtons(2);
+        await AddRemovePage.deleteDeleteButtons(1);
         //verify that 0 delete buttons are now present
         await expect(AddRemovePage.deleteButtons).toBeElementsArrayOfSize(0); 
     });
