@@ -1,4 +1,3 @@
-import { $, $$ } from '@wdio/globals'
 import Page from './page.js'
 
 class AddRemovePage extends Page {
@@ -32,7 +31,6 @@ class AddRemovePage extends Page {
     };
     //What page do you need to navigate to 
     //https://the-internet.herokuapp.com/add_remove_elements/
-    //Click the first delete button 'count' times
     
         get firstDeleteButton() {
             //the first delete button is always present if there is at least one delete button
